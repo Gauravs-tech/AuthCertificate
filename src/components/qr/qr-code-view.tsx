@@ -62,11 +62,29 @@ export function QRCodeView({ barcodeNumber, certificateName, applicantName }: QR
   const shareCertificate = async () => {
     if (typeof navigator !== 'undefined' && navigator.share) {
       try {
-        await navigator.share({
+        const shareData: ShareData = {
           title: `Verify Certificate - ${applicantName}`,
           text: `Verify the authenticity of the ${certificateName} for ${applicantName}.`,
           url: verificationLink,
-        })
+        }
+
+        // Try to generate and attach the QR code image file
+        if (qrSrc) {
+          try {
+            const response = await fetch(qrSrc)
+            const blob = await response.blob()
+            const file = new File([blob], `QR_${barcodeNumber}.png`, { type: 'image/png' })
+
+            // Check if file sharing is supported on this browser/platform
+            if (navigator.canShare && navigator.canShare({ files: [file] })) {
+              shareData.files = [file]
+            }
+          } catch (fileErr) {
+            console.error('Error preparing QR code file for sharing:', fileErr)
+          }
+        }
+
+        await navigator.share(shareData)
         toast.success('Shared successfully!')
       } catch (err) {
         if (err instanceof DOMException && err.name === 'AbortError') return
