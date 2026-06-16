@@ -3,6 +3,7 @@
 import React from 'react'
 import { type Certificate } from '@/types'
 import { Badge } from '@/components/ui/badge'
+import { X } from 'lucide-react'
 
 interface CertificateDetailsProps {
   certificate: Certificate
@@ -87,12 +88,19 @@ export function CertificateDetails({
       <div className="max-w-md mx-auto bg-white min-h-screen my-[30px] rounded-[10px] shadow-md">
 
         {/* Header */}
-        <div className="bg-green-600 text-white px-4 py-4 shadow-sm rounded-[10px] ">
+        <div className="relative bg-green-600 text-white px-4 py-4 shadow-sm rounded-[10px] flex justify-between items-center">
           <h1 className="text-[18px] font-semibold leading-snug">
             Verify Your Authenticated
             <br />
             Certificate
           </h1>
+          <a
+            href="https://aaplesarkar.mahaonline.gov.in/Login/Login"
+            className="flex items-center justify-center w-8 h-8 rounded-full bg-black/15 hover:bg-black/25 text-white transition-colors cursor-pointer shrink-0"
+            title="Close"
+          >
+            <X className="h-4 w-4" />
+          </a>
         </div>
 
         <div className="px-4">
