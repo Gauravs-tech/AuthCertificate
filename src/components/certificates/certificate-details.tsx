@@ -78,8 +78,8 @@ export function CertificateDetails({
   )
 
   return (
-    <div className="min-h-screen bg-[#d1d1d1]  ">
-      <div className="max-w-md mx-auto bg-white min-h-screen m-[20px] rounded-[10px] shadow-md">
+    <div className="min-h-screen bg-[#a1a1a1]  ">
+      <div className="max-w-md mx-auto bg-white min-h-screen m-[30px] rounded-[10px] shadow-md">
 
         {/* Header */}
         <div className="bg-green-600 text-white px-4 py-4 shadow-sm rounded-[10px] ">
@@ -161,6 +161,8 @@ export function CertificateDetails({
                   {certificate.beneficiary_name}
                 </p>
               </div>
+
+              <hr className="border-gray-300 mt-1 mb-3 border" />
 
             </div>
           </div>
