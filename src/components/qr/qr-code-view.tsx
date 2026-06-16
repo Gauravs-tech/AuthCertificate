@@ -24,7 +24,7 @@ export function QRCodeView({ barcodeNumber, certificateName, applicantName }: QR
     const configuredUrl = process.env.NEXT_PUBLIC_APP_URL || origin
     setAppUrl(configuredUrl)
 
-    const verificationUrl = `${configuredUrl}/verify/${barcodeNumber}`
+    const verificationUrl = `${configuredUrl}/Views/SearchBarCode/DisplayBarCodeData?deptName=Revenue&serviceId=2236&barCode=${barcodeNumber}`
 
     // Generate QR Code
     QRCode.toDataURL(
@@ -47,7 +47,7 @@ export function QRCodeView({ barcodeNumber, certificateName, applicantName }: QR
     )
   }, [barcodeNumber])
 
-  const verificationLink = `${appUrl}/verify/${barcodeNumber}`
+  const verificationLink = `${appUrl}/Views/SearchBarCode/DisplayBarCodeData?deptName=Revenue&serviceId=2236&barCode=${barcodeNumber}`
 
   const copyToClipboard = async () => {
     try {
