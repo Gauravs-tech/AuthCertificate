@@ -7,6 +7,7 @@ export const CERTIFICATE_NAMES = [
   'Death Certificate',
   'Marriage Certificate',
   'Property Certificate',
+  'Social Justice Department',
   'Other'
 ] as const;
 

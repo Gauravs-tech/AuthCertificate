@@ -11,6 +11,11 @@ interface CertificateDetailsProps {
 export function CertificateDetails({
   certificate,
 }: CertificateDetailsProps) {
+  const toMarathiDigits = (str: string) => {
+    const marathiDigits = ['०', '१', '२', '३', '४', '५', '६', '७', '८', '९']
+    return str.replace(/[0-9]/g, (digit) => marathiDigits[parseInt(digit)])
+  }
+
   const formatDate = (dateStr: string) => {
     try {
       const date = new Date(dateStr)
@@ -79,7 +84,7 @@ export function CertificateDetails({
 
   return (
     <div className="min-h-screen bg-[#f1f1f1]  ">
-      <div className="max-w-md mx-auto bg-white min-h-screen my-[50px] rounded-[10px] shadow-md">
+      <div className="max-w-md mx-auto bg-white min-h-screen my-[30px] rounded-[10px] shadow-md">
 
         {/* Header */}
         <div className="bg-green-600 text-white px-4 py-4 shadow-sm rounded-[10px] ">
@@ -96,7 +101,11 @@ export function CertificateDetails({
           <Field
             icon="📊"
             label="Barcode Number"
-            value={certificate.barcode_number}
+            value={
+              <span className="font-marathi font-medium">
+                {toMarathiDigits(certificate.barcode_number || '')}
+              </span>
+            }
           />
 
           {/* Certificate Name */}
@@ -110,7 +119,11 @@ export function CertificateDetails({
           <Field
             icon="📅"
             label="Date Applied On"
-            value={formatDate(certificate.date_applied)}
+            value={
+              <span className="font-marathi font-medium text-[16px]">
+                {toMarathiDigits(formatDate(certificate.date_applied || ''))}
+              </span>
+            }
           />
 
           {/* Date Digitally Signed */}
