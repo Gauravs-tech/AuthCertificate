@@ -78,8 +78,8 @@ export function CertificateDetails({
   )
 
   return (
-    <div className="min-h-screen bg-[#a1a1a1]  ">
-      <div className="max-w-md mx-auto bg-white min-h-screen mx-[30px] rounded-[10px] shadow-md">
+    <div className="min-h-screen bg-[#f1f1f1]  ">
+      <div className="max-w-md mx-auto bg-white min-h-screen my-[30px] rounded-[10px] shadow-md">
 
         {/* Header */}
         <div className="bg-green-600 text-white px-4 py-4 shadow-sm rounded-[10px] ">
