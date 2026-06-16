@@ -78,11 +78,11 @@ export function CertificateDetails({
   )
 
   return (
-    <div className="min-h-screen bg-[#f3f3f3]">
-      <div className="max-w-md mx-auto bg-white min-h-screen">
+    <div className="min-h-screen bg-[#d1d1d1]  ">
+      <div className="max-w-md mx-auto bg-white min-h-screen m-[20px] rounded-[10px] shadow-md">
 
         {/* Header */}
-        <div className="bg-green-600 text-white px-4 py-4 shadow-sm">
+        <div className="bg-green-600 text-white px-4 py-4 shadow-sm rounded-[10px] ">
           <h1 className="text-[18px] font-semibold leading-snug">
             Verify Your Authenticated
             <br />
@@ -126,9 +126,9 @@ export function CertificateDetails({
 
           {/* Applicant Section */}
 
-          <div className="my-5 bg-[#f7f9fc] border border-gray-200 rounded-md overflow-hidden">
+          <div className="my-5 bg-[#f7f9fc] border-l-4 border-green-700 rounded-md overflow-hidden">
 
-            <div className="border-l-4 border-green-700 rounded-l-2xl px-4 py-3">
+            <div className=" rounded-l-2xl px-4 py-3">
               <div className="flex items-center gap-2">
                 <span className="text-blue-600 text-lg">👤</span>
 
