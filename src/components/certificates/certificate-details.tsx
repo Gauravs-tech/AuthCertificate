@@ -3,6 +3,7 @@
 import React from 'react'
 import { type Certificate } from '@/types'
 import { Badge } from '@/components/ui/badge'
+import { toISTFullISOString } from '@/lib/date'
 import { X } from 'lucide-react'
 
 interface CertificateDetailsProps {
@@ -18,18 +19,9 @@ export function CertificateDetails({
   }
 
   const formatDate = (dateStr: string) => {
-    try {
-      const date = new Date(dateStr)
-
-      return date.toLocaleDateString('en-IN', {
-        day: '2-digit',
-        month: '2-digit',
-        year: 'numeric',
-      })
-    } catch {
-      return dateStr
-    }
+    return toISTFullISOString(dateStr)
   }
+
 
   const getStatusBadge = () => {
     switch (certificate.status) {

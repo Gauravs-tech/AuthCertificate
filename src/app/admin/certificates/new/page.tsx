@@ -6,6 +6,7 @@ import { createClient } from '@/lib/supabase/client'
 import { AdminHeader } from '@/components/admin/admin-header'
 import { CertificateForm } from '@/components/forms/certificate-form'
 import { type CertificateFormValues } from '@/lib/validations/certificate'
+import { datetimeLocalToISTISO } from '@/lib/date'
 import { Button } from '@/components/ui/button'
 import { ArrowLeft, Award } from 'lucide-react'
 import { toast } from 'sonner'
@@ -26,7 +27,7 @@ export default function AdminNewCertificatePage() {
           {
             barcode_number: values.barcode_number.trim(),
             certificate_name: values.certificate_name,
-            date_applied: new Date(values.date_applied).toISOString(),
+            date_applied: datetimeLocalToISTISO(values.date_applied),
             date_digitally_signed: values.date_digitally_signed,
             applicant_name: values.applicant_name.trim(),
             beneficiary_name: values.beneficiary_name.trim(),

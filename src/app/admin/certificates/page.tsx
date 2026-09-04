@@ -52,6 +52,7 @@ import {
   ChevronRight,
   Filter,
 } from 'lucide-react'
+import { formatISTDateTime } from '@/lib/date'
 import { toast } from 'sonner'
 
 export default function AdminCertificatesListPage() {
@@ -176,15 +177,7 @@ export default function AdminCertificatesListPage() {
 
   // Format date helper
   const formatDate = (dateStr: string) => {
-    try {
-      return new Date(dateStr).toLocaleDateString('en-IN', {
-        day: '2-digit',
-        month: 'short',
-        year: 'numeric',
-      })
-    } catch {
-      return dateStr
-    }
+    return formatISTDateTime(dateStr)
   }
 
   return (

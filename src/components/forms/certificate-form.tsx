@@ -5,6 +5,7 @@ import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { certificateSchema, type CertificateFormValues } from '@/lib/validations/certificate'
 import { CERTIFICATE_NAMES, DESIGNATIONS, TALUKAS, DISTRICTS, STATUSES } from '@/constants'
+import { formatToDatetimeLocal } from '@/lib/date'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
@@ -35,9 +36,7 @@ export function CertificateForm({
   const formattedInitialData = initialData
     ? {
         ...initialData,
-        date_applied: initialData.date_applied
-          ? new Date(initialData.date_applied).toISOString().split('T')[0]
-          : '',
+        date_applied: formatToDatetimeLocal(initialData.date_applied),
       }
     : undefined
 
@@ -52,7 +51,7 @@ export function CertificateForm({
     defaultValues: (formattedInitialData || {
       barcode_number: '',
       certificate_name: '',
-      date_applied: new Date().toISOString().split('T')[0],
+      date_applied: formatToDatetimeLocal(),
       date_digitally_signed: false,
       applicant_name: '',
       beneficiary_name: '',
@@ -135,7 +134,8 @@ export function CertificateForm({
               </Label>
               <Input
                 id="date_applied"
-                type="date"
+                type="datetime-local"
+                step="60"
                 className={`w-full ${errors.date_applied ? 'border-red-500 focus-visible:ring-red-400' : ''}`}
                 {...register('date_applied')}
               />

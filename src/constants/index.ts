@@ -13,7 +13,6 @@ export const CERTIFICATE_NAMES = [
 
 export const DESIGNATIONS = [
   'Tehsildar',
-  'Naib Tehsildar',
   'District Collector',
   'Deputy Collector',
   'SDO',
@@ -22,23 +21,23 @@ export const DESIGNATIONS = [
 ] as const;
 
 export const TALUKAS = [
-  'Warud',
-  'Morshi',
-  'Chandur Bazar',
-  'Achalpur',
-  'Daryapur',
-  'Anjangaon Surji',
-  'Amravati',
+  'वरुड',
+  'मोर्शी',
+  'चांदूर बाजार',
+  'अचलपूर',
+  'दर्यापूर',
+  'अंजनगाव सुर्जी',
+  'अमरावती',
   'Other'
 ] as const;
 
 export const DISTRICTS = [
-  'Amravati',
-  'Nagpur',
-  'Akola',
-  'Wardha',
-  'Yavatmal',
-  'Buldhana',
+  'अमरावती',
+  'नागपूर',
+  'अकोला',
+  'वर्धा',
+  'यवतमाळ',
+  'बुलडाणा',
   'Other'
 ] as const;
 
